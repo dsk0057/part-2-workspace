@@ -9,6 +9,7 @@
 package com.javatunes.compare;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import org.junit.Test;
 
@@ -30,8 +31,11 @@ public class StringSortTest {
     System.out.println(names + "\n");
     
     System.out.println("Increasing length - lambda:");
-    // TODO: call names.sort() and pass in an "expression" lambda
+    // DONE: call names.sort() and pass in an "expression" lambda
     // hint: a compatible lambda will have this form:
     //       (obj1, obj2) -> expression-that-evaluates-to-int
+//    names.sort((name1, name2) -> name1.length() - name2.length());
+    names.sort(Comparator.comparing(String::length));
+    System.out.println(names);
   }
 }
