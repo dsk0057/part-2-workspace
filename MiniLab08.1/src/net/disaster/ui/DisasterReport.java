@@ -39,7 +39,7 @@ public class DisasterReport {
       warning(message);                       // lambda calls instance method, passing instance variable
       message = "No disasters at this time";  // reassign instance variable OK
       button.setText("OK To Press Me Now");   // does not break rules of a final variable
-      // TODO: reassign button to reference a *new* JButton object
+      // DONE: reassign button to reference a *new* JButton object
     });
     
     // finish UI setup
