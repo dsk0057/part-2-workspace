@@ -42,4 +42,9 @@ public class Account {
   public synchronized void setBalance(int balance) {
     this.balance = balance;
   }
+
+  public void transferTo (Account destination, int amount) {
+    withdraw(amount);
+    destination.deposit(amount);
+  }
 }

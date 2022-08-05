@@ -33,13 +33,14 @@ class LockManager {
       if (lock1IsLocked && lock2IsLocked) {
         break;
       }
-      // you didn't lock both of them, so unlock those you did and try again
-      else { 
-        if (lock1IsLocked) lock1.unlock();
-        if (lock2IsLocked) lock2.unlock();
-        try { Thread.sleep(250); }
+        if (lock1IsLocked) {
+          lock1.unlock();
+        }
+        else if (lock2IsLocked){
+          lock2.unlock();
+        }
+        try { Thread.sleep(25); }
         catch (InterruptedException ignored) { }
       }
     }
   }
-}

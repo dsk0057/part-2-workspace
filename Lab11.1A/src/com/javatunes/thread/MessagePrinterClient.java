@@ -11,5 +11,9 @@ public class MessagePrinterClient {
 
   public static void main(String[] args) {
     // TODO: create two instances of your thread subclass and start them up
+    Thread lightSleeper = new MessagePrinter("taking a catnap", 250);
+    lightSleeper.start();
+
+    new MessagePrinter("sleeping soundly", 1000).start();
   }
 }

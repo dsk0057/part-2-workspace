@@ -7,13 +7,16 @@
  */
 package com.javatunes.thread;
 
-// TODO: extend the Thread class
-public class MessagePrinter {
-  private String message;
+// DONE: extend the Thread class
+public class MessagePrinter extends Thread{
+  private final String message;
+  private final long sleepInterval;
   
-  public MessagePrinter(String message) {
+  public MessagePrinter(String message, long sleepInterval) {
+    super(message);
     this.message = message;
-    // TODO: set the thread name [important when debugging]
+    // DONE: set the thread name [important when debugging]
+    this.sleepInterval = sleepInterval;
   }
   
   /**
@@ -26,6 +29,13 @@ public class MessagePrinter {
    * You can either leave the catch block empty, or print the exception to stdout.
    */
   public void run() {
-    
+    for (int i = 0; i < 10; i++) {
+      try {
+        System.out.println(message);
+        sleep(sleepInterval);
+      } catch (InterruptedException ignored) {
+        // Get on with your life; this does not prevent us from continuing.
+      }
+    }
   }
 }
